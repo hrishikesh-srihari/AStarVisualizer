@@ -47,7 +47,7 @@ class Spot:
         return self.color == TURQUOISE
 
     def reset(self):
-        return self.color == WHITE
+        self.color = WHITE
 
     def make_start(self):
         self.color = ORANGE
@@ -133,17 +133,25 @@ def main(win, width):
                 pos = pygame.mouse.get_pos()
                 row, col = get_clicked_pos(pos, ROWS, width)
                 spot = grid[row][col]
-                if not start:
+                if not start and spot != end:
                     start = spot
                     start.make_start()
-                elif not end:
+                elif not end and spot != start:
                     end = spot
                     end.make_end()
 
                 elif spot != end and spot != start:
                     spot.make_barrier()
             elif pygame.mouse.get_pressed()[2]:
-                pass
+                pos = pygame.mouse.get_pos()
+                row, col = get_clicked_pos(pos, ROWS, width)
+                spot = grid[row][col]
+                spot.reset()
+                if spot == start:
+                    start = None
+                elif spot  == end:
+                    end = None
+            
     pygame.quit()
 
 
