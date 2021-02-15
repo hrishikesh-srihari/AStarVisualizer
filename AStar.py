@@ -50,19 +50,19 @@ class Node:
                 self.color = WHITE
 
         def make_start(self):
-                self.color = ORANGE
-
-        def make_closed(self):
                 self.color = RED
 
+        def make_closed(self):
+                self.color = ORANGE
+
         def make_open(self):
-                self.color = GREEN
+                self.color = TURQUOISE
 
         def make_barrier(self):
                 self.color = BLACK
 
         def make_end(self):
-                self.color = TURQUOISE
+                self.color = GREEN
 
         def make_path(self):
                 self.color = PURPLE
