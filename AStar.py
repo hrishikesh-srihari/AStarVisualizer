@@ -228,7 +228,7 @@ def main(win, width):
                                         end = None
 
                         if event.type == pygame.KEYDOWN:
-                                if event.key == pygame.K_SPACE and start and end:
+                                if event.key == pygame.K_RETURN and start and end:
                                         for row in grid:
                                                 for spot in row:
                                                         spot.update_neighbors(grid)
